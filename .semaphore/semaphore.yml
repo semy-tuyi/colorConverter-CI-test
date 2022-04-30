@@ -15,6 +15,14 @@ blocks:
             - cache restore
             - npm install
             - cache store
+      env_vars:
+        - name: NODE_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - cache restore
   - name: Test
     task:
       env_vars:
