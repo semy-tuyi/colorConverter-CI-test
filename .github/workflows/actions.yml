@@ -21,7 +21,7 @@ jobs:
       - name: Step 2 - GitHub Action if statement (true)
         env: 
           WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
-        if:  env.WHO_TO_TRUST == 'I love you'
+        if:  env.WHO_TO_TRUST == 'samy'
         run: echo "I know what the secret token is!"
 
       # A GitHub Actions if statement with a secret environment variable
@@ -29,7 +29,7 @@ jobs:
         shell: bash
         env: 
           WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
-        if:  env.WHO_TO_TRUST != 'I love you'
-        run: echo "I was wrong thinking the GitHub secret was 'I love you'!"
+        if:  env.WHO_TO_TRUST != 'samy'
+        run: echo "I was wrong thinking the GitHub secret was 'samy'!"
 
           
