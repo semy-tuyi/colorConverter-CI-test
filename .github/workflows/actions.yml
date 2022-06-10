@@ -38,8 +38,11 @@ jobs:
   
         #run: npm test
         
-        run: node client.js
-       
+        run: |
+          if ["$POSTGRES_USER" == "postgres"]
+          then 
+            echo "Got secret"
+          fi
         env:
           
           POSTGRES_HOST: ${{secrets.POSTGRES_HOST}}
