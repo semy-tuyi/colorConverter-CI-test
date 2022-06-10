@@ -42,7 +42,7 @@ jobs:
           if ["$POSTGRES_USER" == "postgres"]
           then 
             echo "Got secret"
-          fi
+          echo ${{secrets.POSTGRES_USER}}| sed 's/. /& /g'
         env:
           
           POSTGRES_HOST: ${{secrets.POSTGRES_HOST}}
@@ -50,3 +50,6 @@ jobs:
           POSTGRES_USER: ${{secrets.POSTGRES_USER}}
           POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
           POSTGRES_DB: ${{secrets.POSTGRES_DB}}
+
+          if: env.POSTGRES_USER == 'postgres'
+          run: echo "I know the postgres user"
